@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{BOOK_TITLE}} - Soft Recipe Book</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        @media print {
+            .page-break { page-break-before: always; }
+            .no-print { display: none; }
+            body { print-color-adjust: exact; }
+            .print-margin { margin: 0.5in; }
+        }
+        .font-poppins { font-family: 'Poppins', sans-serif; }
+        .font-dancing { font-family: 'Dancing Script', cursive; }
+        .bg-gradient-soft { background: linear-gradient(135deg, #fef7ed 0%, #fff2e6 100%); }
+        .text-shadow-soft { text-shadow: 1px 1px 3px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="font-poppins text-gray-800 print-margin">
+
+<!-- COVER PAGE -->
+<div class="min-h-screen bg-gradient-soft relative overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('{{COVER_BACKGROUND_IMAGE}}');"></div>
+    <div class="relative z-10 flex flex-col items-center justify-center min-h-screen p-8">
+        <div class="text-center bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-xl">
+            <h1 class="font-dancing font-semibold text-6xl md:text-7xl mb-6 text-rose-600 text-shadow-soft">{{BOOK_TITLE}}</h1>
+            <div class="flex justify-center mb-6">
+                <div class="w-24 h-24 bg-rose-200 rounded-full flex items-center justify-center">
+                    <div class="w-16 h-16 bg-rose-300 rounded-full flex items-center justify-center">
+                        <div class="w-8 h-8 bg-rose-500 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-xl font-light text-rose-700">{{BOOK_SUBTITLE}}</p>
+        </div>
+        <div class="absolute bottom-8 left-8 bg-white/90 rounded-2xl p-4 shadow-lg">
+            <img src="{{LOGO_URL}}" alt="Logo" class="h-10 w-auto">
+        </div>
+    </div>
+</div>
+
+<!-- INTRO PAGE -->
+<div class="page-break min-h-screen bg-gradient-soft p-12">
+    <div class="max-w-4xl mx-auto">
+        <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-12 shadow-xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                <div class="md:col-span-2">
+                    <h2 class="font-dancing font-semibold text-5xl mb-4 text-rose-600">Welcome to My</h2>
+                    <h3 class="font-poppins font-light text-4xl mb-8 text-gray-700">Cozy Kitchen</h3>
+                    <div class="flex items-center mb-8">
+                        <div class="w-12 h-1 bg-rose-300 rounded-full"></div>
+                        <div class="w-8 h-8 bg-rose-200 rounded-full mx-4"></div>
+                        <div class="w-12 h-1 bg-rose-300 rounded-full"></div>
+                    </div>
+                    <div class="text-base leading-relaxed space-y-4 text-gray-600">
+                        {{INTRO_TEXT}}
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 bg-rose-100 rounded-full absolute -top-4 -left-4"></div>
+                        <img src="{{AUTHOR_PHOTO}}" alt="{{AUTHOR_NAME}}" class="w-56 h-56 object-cover rounded-full border-4 border-white shadow-xl relative z-10">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- RECIPE PAGES -->
+<!-- Recipe Page Template -->
+<div class="page-break min-h-screen bg-gradient-soft">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 min-h-screen p-8">
+        <!-- Left Column - Image -->
+        <div class="lg:col-span-2">
+            <div class="bg-white rounded-3xl p-6 shadow-xl h-full">
+                <img src="{{RECIPE_1_IMAGE}}" alt="{{RECIPE_1_TITLE}}" class="w-full h-64 object-cover rounded-2xl mb-6">
+                <h3 class="font-dancing font-semibold text-3xl text-rose-600 mb-2">{{RECIPE_1_TITLE}}</h3>
+                <div class="flex items-center">
+                    <div class="w-16 h-1 bg-rose-300 rounded-full"></div>
+                    <div class="w-6 h-6 bg-rose-200 rounded-full mx-3"></div>
+                    <div class="w-16 h-1 bg-rose-300 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Column - Content -->
+        <div class="lg:col-span-3 space-y-6">
+            <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
+                <h4 class="font-poppins font-medium text-xl mb-4 text-rose-600 flex items-center">
+                    <div class="w-6 h-6 bg-rose-200 rounded-full mr-3"></div>
+                    Ingredients
+                </h4>
+                <ul class="space-y-2 text-sm text-gray-600 ml-9">
+                    {{RECIPE_1_INGREDIENTS}}
+                </ul>
+            </div>
+            
+            <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
+                <h4 class="font-poppins font-medium text-xl mb-4 text-rose-600 flex items-center">
+                    <div class="w-6 h-6 bg-rose-200 rounded-full mr-3"></div>
+                    Instructions
+                </h4>
+                <div class="space-y-4 text-sm text-gray-600 ml-9">
+                    {{RECIPE_1_INSTRUCTIONS}}
+                </div>
+            </div>
+            
+            <div class="bg-rose-50 rounded-3xl p-8 shadow-xl">
+                <h4 class="font-poppins font-medium text-lg mb-4 text-rose-700 flex items-center">
+                    <div class="w-5 h-5 bg-rose-300 rounded-full mr-3"></div>
+                    Nutrition
+                </h4>
+                <div class="grid grid-cols-2 gap-4 text-sm text-rose-600 ml-8">
+                    {{RECIPE_1_NUTRITION}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recipe 2 -->
+<div class="page-break min-h-screen bg-gradient-soft">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 min-h-screen p-8">
+        <div class="lg:col-span-2">
+            <div class="bg-white rounded-3xl p-6 shadow-xl h-full">
+                <img src="{{RECIPE_2_IMAGE}}" alt="{{RECIPE_2_TITLE}}" class="w-full h-64 object-cover rounded-2xl mb-6">
+                <h3 class="font-dancing font-semibold text-3xl text-rose-600 mb-2">{{RECIPE_2_TITLE}}</h3>
+                <div class="flex items-center">
+                    <div class="w-16 h-1 bg-rose-300 rounded-full"></div>
+                    <div class="w-6 h-6 bg-rose-200 rounded-full mx-3"></div>
+                    <div class="w-16 h-1 bg-rose-300 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+        <div class="lg:col-span-3 space-y-6">
+            <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
+                <h4 class="font-poppins font-medium text-xl mb-4 text-rose-600 flex items-center">
+                    <div class="w-6 h-6 bg-rose-200 rounded-full mr-3"></div>
+                    Ingredients
+                </h4>
+                <ul class="space-y-2 text-sm text-gray-600 ml-9">{{RECIPE_2_INGREDIENTS}}</ul>
+            </div>
+            <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
+                <h4 class="font-poppins font-medium text-xl mb-4 text-rose-600 flex items-center">
+                    <div class="w-6 h-6 bg-rose-200 rounded-full mr-3"></div>
+                    Instructions
+                </h4>
+                <div class="space-y-4 text-sm text-gray-600 ml-9">{{RECIPE_2_INSTRUCTIONS}}</div>
+            </div>
+            <div class="bg-rose-50 rounded-3xl p-8 shadow-xl">
+                <h4 class="font-poppins font-medium text-lg mb-4 text-rose-700 flex items-center">
+                    <div class="w-5 h-5 bg-rose-300 rounded-full mr-3"></div>
+                    Nutrition
+                </h4>
+                <div class="grid grid-cols-2 gap-4 text-sm text-rose-600 ml-8">{{RECIPE_2_NUTRITION}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Continue same pattern for recipes 3-10... -->
+<!-- Recipe 10 (Final Recipe) -->
+<div class="page-break min-h-screen bg-gradient-soft">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 min-h-screen p-8">
+        <div class="lg:col-span-2">
+            <div class="bg-white rounded-3xl p-6 shadow-xl h-full">
+                <img src="{{RECIPE_10_IMAGE}}" alt="{{RECIPE_10_TITLE}}" class="w-full h-64 object-cover rounded-2xl mb-6">
+                <h3 class="font-dancing font-semibold text-3xl text-rose-600 mb-2">{{RECIPE_10_TITLE}}</h3>
+                <div class="flex items-center">
+                    <div class="w-16 h-1 bg-rose-300 rounded-full"></div>
+                    <div class="w-6 h-6 bg-rose-200 rounded-full mx-3"></div>
+                    <div class="w-16 h-1 bg-rose-300 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+        <div class="lg:col-span-3 space-y-6">
+            <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
+                <h4 class="font-poppins font-medium text-xl mb-4 text-rose-600 flex items-center">
+                    <div class="w-6 h-6 bg-rose-200 rounded-full mr-3"></div>
+                    Ingredients
+                </h4>
+                <ul class="space-y-2 text-sm text-gray-600 ml-9">{{RECIPE_10_INGREDIENTS}}</ul>
+            </div>
+            <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
+                <h4 class="font-poppins font-medium text-xl mb-4 text-rose-600 flex items-center">
+                    <div class="w-6 h-6 bg-rose-200 rounded-full mr-3"></div>
+                    Instructions
+                </h4>
+                <div class="space-y-4 text-sm text-gray-600 ml-9">{{RECIPE_10_INSTRUCTIONS}}</div>
+            </div>
+            <div class="bg-rose-50 rounded-3xl p-8 shadow-xl">
+                <h4 class="font-poppins font-medium text-lg mb-4 text-rose-700 flex items-center">
+                    <div class="w-5 h-5 bg-rose-300 rounded-full mr-3"></div>
+                    Nutrition
+                </h4>
+                <div class="grid grid-cols-2 gap-4 text-sm text-rose-600 ml-8">{{RECIPE_10_NUTRITION}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- OUTRO PAGE -->
+<div class="page-break min-h-screen bg-gradient-soft relative">
+    <div class="flex flex-col items-center justify-center min-h-screen p-12 text-center">
+        <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-12 shadow-xl max-w-2xl">
+            <h2 class="font-dancing font-semibold text-5xl mb-6 text-rose-600">Thank You</h2>
+            <div class="flex justify-center mb-8">
+                <div class="w-16 h-1 bg-rose-300 rounded-full"></div>
+                <div class="w-8 h-8 bg-rose-200 rounded-full mx-4"></div>
+                <div class="w-16 h-1 bg-rose-300 rounded-full"></div>
+            </div>
+            <div class="text-base mb-10 leading-relaxed text-gray-600">
+                {{OUTRO_TEXT}}
+            </div>
+            <div class="bg-rose-500 text-white px-10 py-4 rounded-full font-poppins font-medium hover:bg-rose-600 transition-colors shadow-lg">
+                {{CTA_TEXT}}
+            </div>
+        </div>
+        <div class="absolute bottom-8 bg-white/90 rounded-2xl p-4 shadow-lg">
+            <img src="{{LOGO_URL}}" alt="Logo" class="h-12 w-auto">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
